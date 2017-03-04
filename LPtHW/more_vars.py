@@ -16,7 +16,7 @@ print "Let's talk about %s." % name
 print "He's %d inches tall." % height
 print "Or he is %d centimeters tall." % inches_to_cm(height)
 print 'He weighs %d pounds.' % weight
-print 'Or he weighs %r kilograms.' % round(lbs_to_kg(weight),1)
+print 'Or he weighs %s kilograms.' % round(lbs_to_kg(weight), 1)
 print 'He has %s hair and %s eyes.' % (hair_color, eye_color)
 print 'And! His teeth are %s.' % teeth_color
 
