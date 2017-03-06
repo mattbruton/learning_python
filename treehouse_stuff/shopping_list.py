@@ -27,7 +27,7 @@ def run_todo():
         elif user_choice.lower() == 'help':
             show_help()
         else:
-            shopping_list.append(user_choice)
+            add_item(shopping_list, user_choice)
 
 def show_then_exit(list):
     print('{0}\nHere\'s what you need today:\n{0}'.format(text_border))
@@ -35,6 +35,11 @@ def show_then_exit(list):
 
 def show_help():
     print(help_message)
+
+def add_item(list, item):
+    list.append(item)
+    item_text = 'item' if len(list) == 1 else 'items'
+    print("Added {0}! List contains {1} {2}.".format(item, len(list), item_text))
 
 def show_list(list):
     if len(list) > 0:
