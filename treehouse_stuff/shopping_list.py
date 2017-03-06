@@ -15,7 +15,10 @@ Shopping List\n
 4. Anything else -- Adds your input to the list of things you need!
 {0}""".format(text_border)
 
-def run_todo():
+def main():
+    # Print initial instructions for the user
+    print(help_message)
+    # Handle user's input until they're ready to exit by typing "DONE".
     shopping_list = []
     while True:
         user_choice = input(prompt)
@@ -48,7 +51,4 @@ def show_list(list):
     else:
         print('Your list is empty!')
 
-# Print initial instructions for the user
-print(help_message)
-# Handle user's input until they're ready to exit by typing "DONE".
-run_todo()
+main()
