@@ -6,15 +6,9 @@ prompt = '>> '
 text_border = '=' * 80
 
 # Helpful messages/instructions:
-instructions = """{0}
-Ready to add items to your shopping list?
-Simply type an item you need and press enter to add it to your list.
-Type "DONE" to exit, "SHOW" to see your current list, or "HELP" for all options.
-{0}""".format(text_border)
-
 help_message = """
 {0}
-List of Commands:\n
+Shopping List\n
 1. "SHOW" -- Prints items currently in your list.
 2. "HELP" -- Brings you to this handy list of commands.
 3. "DONE" -- Exits the program.
@@ -25,12 +19,12 @@ def run_todo():
     shopping_list = []
     while True:
         user_choice = input(prompt)
-        if user_choice == 'DONE':
+        if user_choice.lower() == 'done':
             show_then_exit(shopping_list)
             break
-        elif user_choice == 'SHOW':
+        elif user_choice.lower() == 'show':
             show_list(shopping_list)
-        elif user_choice == 'HELP':
+        elif user_choice.lower() == 'help':
             show_help()
         else:
             shopping_list.append(user_choice)
@@ -50,6 +44,6 @@ def show_list(list):
         print('Your list is empty!')
 
 # Print initial instructions for the user
-print(instructions)
+print(help_message)
 # Handle user's input until they're ready to exit by typing "DONE".
 run_todo()
