@@ -12,12 +12,12 @@ def inches_to_cm(height_in_inches):
 def lbs_to_kg(weight_in_lbs):
     return weight_in_lbs * 0.453592;
 
-print "Let's talk about %s." % name
-print "He's %d inches tall." % height
-print "Or he is %d centimeters tall." % inches_to_cm(height)
-print 'He weighs %d pounds.' % weight
-print 'Or he weighs %s kilograms.' % round(lbs_to_kg(weight), 1)
-print 'He has %s hair and %s eyes.' % (hair_color, eye_color)
-print 'And! His teeth are %s.' % teeth_color
+print("Let's talk about {}.".format(name))
+print("He's {} inches tall.".format(height))
+print("Or he is {} centimeters tall.".format(inches_to_cm(height)))
+print('He weighs {} pounds.'.format(weight))
+print('Or he weighs {} kilograms.'.format(round(lbs_to_kg(weight), 1)))
+print('He has {0} hair and {1} eyes.'.format(hair_color, eye_color))
+print('And! His teeth are {}.'.format(teeth_color))
 
-print 'If I add %d, %d, and %d I get %d.' % (weight, height, age, weight + height + age)
+print('If I add {0}, {1}, and {2} I get {3}.'.format(weight, height, age, weight + height + age))
