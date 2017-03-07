@@ -22,20 +22,16 @@ def fail_to_win(selected_number):
     print('I\'m sorry! You failed to guess the secret number this time. It was {}.'.format(selected_number))
 
 def give_hint(guess, actual_number):
-     comparison_word = 'less' if actual_number < int(guess) else 'greater'
-     print('Hint: The number is {} than your guess.'.format(comparison_word))
+    comparison_word = 'less' if actual_number < int(guess) else 'greater'
+    print('Hint: The number is {} than your guess.'.format(comparison_word))
 
 def check_for_continue():
     user_response = input("Want to play again? (Y/n)\n>> ")
-    affirmative_responses = ['y', 'yes', '']
-    return user_response.lower() in affirmative_responses
+    return user_response.lower() in list(['y', 'yes', ''])
 
 def check_guess_pattern(guess):
     result = re.match('^([1-9]|10){1}$', guess)
-    if result:
-        return True
-    else:
-        print("Please select a number 1 - 10.")
+    return True if result else print("Please select a number 1 - 10.")
 
 def game():
     attempts_remaining = 2
