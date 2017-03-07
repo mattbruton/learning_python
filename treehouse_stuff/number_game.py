@@ -13,7 +13,7 @@ Guess my number correctly, and win!
 {0}""".format(text_border)
 
 def handle_correct_guess(guess):
-    print('Yay! You guessed {}, that was the secret number! Goodbye for now.'.format(guess))
+    print('Yay! You guessed {}, that was the secret number!'.format(guess))
 
 def handle_incorrect_guess(guess, remaining_attempts):
     print('You guessed {0}, that is not my number. {1} attempts remaining'.format(guess, remaining_attempts))
@@ -25,6 +25,11 @@ def give_hint(guess, actual_number):
      comparison_word = 'less' if actual_number < int(guess) else 'greater'
      print('Hint: The number is {} than your guess.'.format(comparison_word))
 
+def check_for_continue():
+    user_response = input("Want to play again? (Y/n)\n>> ")
+    affirmative_responses = ['y', 'yes', '']
+    return user_response.lower() in affirmative_responses
+
 def check_guess_pattern(guess):
     result = re.match('^([1-9]|10){1}$', guess)
     if result:
@@ -32,11 +37,9 @@ def check_guess_pattern(guess):
     else:
         print("Please select a number 1 - 10.")
 
-def main():
+def game():
     attempts_remaining = 2
     random_number = random.randint(1, 10)
-    print(instructions)
-
     while True:
         # Prompt user for guess
         user_guess = input(">> ")
@@ -58,4 +61,13 @@ def main():
                 # No attempts left, game over
                 fail_to_win(random_number)
                 return False
+
+def main():
+    while True:
+        print(instructions)
+        game()
+        if check_for_continue() == False:
+            break
+    print('Bye for now!')
+
 main()
