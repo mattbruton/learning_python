@@ -41,24 +41,16 @@ def game():
     attempts_remaining = 2
     random_number = random.randint(1, 10)
     while True:
-        # Prompt user for guess
         user_guess = input(">> ")
-        # Check that guess is a number 1-9 or 10.
-        # Will print message if pattern match fails.
         if check_guess_pattern(user_guess):
-            # Based on guess:
             if user_guess == str(random_number):
-                # Correct guess, break loop, end game
                 handle_correct_guess(user_guess)
                 return False
             elif attempts_remaining >= 1:
-                # Incorrect guess, tell user if number is higher or lower.
                 handle_incorrect_guess(user_guess, attempts_remaining)
                 give_hint(user_guess, random_number)
-                # Remove one attempt per incorrect guess
                 attempts_remaining -= 1
             else:
-                # No attempts left, game over
                 fail_to_win(random_number)
                 return False
 
